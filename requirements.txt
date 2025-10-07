@@ -8,4 +8,4 @@ mido
 nnAudio==0.3.1 
 numpy 
 bitstruct 
-torchcrepeV2
+torchcrepe

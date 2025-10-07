@@ -125,6 +125,9 @@ def monotonize_pitch(times, onset_frames, pitch):
 
 def preprocess(f, sampling_rate, block_size, signal_length=-1, oneshot=True):
     x, sr = librosa.load(f, sampling_rate)
+    
+    y = torch.from_numpy(x).unsqueeze(0)
+
     if signal_length == -1:     # full length
         signal_length = len(x)
     else:
@@ -147,7 +150,7 @@ def preprocess(f, sampling_rate, block_size, signal_length=-1, oneshot=True):
     # TODO: HACK for now, onset detector missed. not all samples need this!!
     onset_frames = np.concatenate([np.array([0]), onset_frames])
 
-    pitch = extract_pitch(x, sampling_rate, block_size)
+    pitch = extract_pitch(y, sampling_rate, block_size)
     loudness = extract_loudness(x, sampling_rate, block_size)
 
     pitch_monotonize = monotonize_pitch(times, onset_frames, pitch)
