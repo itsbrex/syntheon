@@ -4,7 +4,7 @@
 
 import numpy as np
 import os
-from torchcrepeV2 import ONNXTorchCrepePredictor
+import torchcrepe
 import yaml 
 
 with open(
@@ -16,17 +16,11 @@ with open(
     config = yaml.safe_load(stream)
 
 
-crepe_predictor = ONNXTorchCrepePredictor()
-
-
 def extract_pitch(signal, sampling_rate, block_size, model_capacity="full"):
     length = signal.shape[-1] // block_size
-    f0 = crepe_predictor.predict(
-        audio=signal, 
-        sr=sampling_rate, 
-        viterbi=True, 
-        center=True, 
-        step_size=int(1000 * block_size / sampling_rate),
+    f0 = torchcrepe.predict(
+        signal, 
+        sampling_rate
     )
 
     if f0.shape[-1] != length:
