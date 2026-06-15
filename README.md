@@ -6,7 +6,7 @@ Syntheon - [Pantheon](https://en.wikipedia.org/wiki/Pantheon,_Rome) for music sy
 
 Syntheon provides **parameter inference** for music synthesizers using *deep learning models*. Given an audio sample, Syntheon infers the best parameter preset for a given synthesizer that can recreate the audio sample. 
 
-**Check out [this presentation](https://docs.google.com/presentation/d/1PA4fom6QvCW_YG8L0MMVumrAluljcymndNlaK2HW5t0/edit?usp=sharing) on the recent advances of synth parameter inference.
+**Check out [this presentation](https://www.youtube.com/watch?v=nZ560W6bA3o&t=1s) on the recent advances of synth parameter inference.
 
 For now: 
 - :heavy_check_mark: [Vital](https://vital.audio/) is supported
